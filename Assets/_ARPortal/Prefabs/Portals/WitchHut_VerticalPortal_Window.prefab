@@ -24,7 +24,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 249438205158883418}
   serializedVersion: 2
-  m_LocalRotation: {x: -0.5, y: -0.5, z: -0.5, w: 0.5}
+  m_LocalRotation: {x: 0, y: 0.7071068, z: 0.7071068, w: 0}
   m_LocalPosition: {x: -0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
@@ -34,7 +34,7 @@ Transform:
   - {fileID: 7726595186892979767}
   - {fileID: 1816929212197546231}
   m_Father: {fileID: 3870626741096019815}
-  m_LocalEulerAnglesHint: {x: -90, y: 0, z: -90}
+  m_LocalEulerAnglesHint: {x: -90, y: 0, z: 180}
 --- !u!1 &2077413381878731843
 GameObject:
   m_ObjectHideFlags: 0
@@ -6766,6 +6766,21 @@ PrefabInstance:
       propertyPath: m_Layer
       value: 7
       objectReference: {fileID: 0}
+    - target: {fileID: 6070415500708160214, guid: 354aeef51132448329e69052b04032bb,
+        type: 3}
+      propertyPath: m_ConnectedAnchor.x
+      value: -0.31675595
+      objectReference: {fileID: 0}
+    - target: {fileID: 6070415500708160214, guid: 354aeef51132448329e69052b04032bb,
+        type: 3}
+      propertyPath: m_ConnectedAnchor.y
+      value: 0.3381974
+      objectReference: {fileID: 0}
+    - target: {fileID: 6070415500708160214, guid: 354aeef51132448329e69052b04032bb,
+        type: 3}
+      propertyPath: m_ConnectedAnchor.z
+      value: -0.44430795
+      objectReference: {fileID: 0}
     - target: {fileID: 6096396753504490007, guid: 354aeef51132448329e69052b04032bb,
         type: 3}
       propertyPath: m_Layer
@@ -7460,6 +7475,21 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Layer
       value: 7
+      objectReference: {fileID: 0}
+    - target: {fileID: 9222308321722995699, guid: 354aeef51132448329e69052b04032bb,
+        type: 3}
+      propertyPath: m_ConnectedAnchor.x
+      value: -0.3184301
+      objectReference: {fileID: 0}
+    - target: {fileID: 9222308321722995699, guid: 354aeef51132448329e69052b04032bb,
+        type: 3}
+      propertyPath: m_ConnectedAnchor.y
+      value: 0.7455107
+      objectReference: {fileID: 0}
+    - target: {fileID: 9222308321722995699, guid: 354aeef51132448329e69052b04032bb,
+        type: 3}
+      propertyPath: m_ConnectedAnchor.z
+      value: -0.49273175
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects:
