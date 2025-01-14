@@ -6,6 +6,9 @@ TagManager:
   tags:
   - Ignite
   - ARBase
+  - Ghost
+  - TriggerPoint
+  - Window
   layers:
   - Default
   - TransparentFX

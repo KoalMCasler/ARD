@@ -4,25 +4,32 @@ using UnityEngine;
 using UnityEngine.XR.ARFoundation;
 using UnityEngine.InputSystem;
 using UnityEngine.XR.ARSubsystems;
+using UnityEngine.SceneManagement;
+using Unity.VisualScripting;
+using UnityEngine.UI;
 
 public class ARPortal : MonoBehaviour
 {
     [Header("Managers")]
     public ARRaycastManager raycastManager;
     public ARPlaneManager planeManager;
-    [Header("Everything else")]
     public List<ARRaycastHit> hitList = new List<ARRaycastHit>();
+    [Header("Input Properties")]
     public bool portalSpawned;
     public GameObject uIObject;
-    public InputActionAsset inputs;
-    public InputAction touchAction;
     public TrackableType trackableType;
     public GameObject portalPrefab;
+    public Text debugText;
+    public GameObject mainCam;
+    [Header("Interaction Properties")]
+    public GameObject ghost;
+    public Animator ghostAnim;
+    public AudioSource ghostSound;
+
     // Start is called before the first frame update
     void Start()
     {
         uIObject.SetActive(true);
-        touchAction = inputs.FindAction("Touch", false);
     }
 
     // Update is called once per frame
@@ -32,6 +39,7 @@ public class ARPortal : MonoBehaviour
         {
             uIObject.SetActive(false);
         }
+        this.transform.position = mainCam.transform.position;
     }
 
     void OnTouch(InputValue touchValue)
@@ -43,10 +51,45 @@ public class ARPortal : MonoBehaviour
             {
                 GameObject targetPlane = FindObjectOfType<ARPlane>().gameObject;
                 Instantiate(portalPrefab,targetPlane.transform.position,targetPlane.transform.rotation);
+                
                 portalSpawned = true;
                 planeManager.SetTrackablesActive(false);
                 planeManager.enabled = false;
             }
         }
     }
+
+    void OnTriggerEnter(Collider other)
+    {
+        ghost = GameObject.FindWithTag("Ghost");
+        ghostAnim = ghost.GetComponent<Animator>();
+        //debugText.text = other.name + " entered";
+        if(other.name == "Cheese (1)")
+        {
+            TriggerAnimation("Hide");
+        }
+    }
+
+    void OnTriggerExit(Collider other)
+    {
+        //debugText.text = other.name + " Exited";
+        if(other.name == "Cheese (1)")
+        {
+            TriggerAnimation("Return");
+        }
+    }
+
+    void TriggerAnimation(string anim)
+    {
+        if(anim == "Hide")
+        {
+            ghostAnim.SetTrigger("Hide");
+            ghostSound.PlayOneShot(ghostSound.clip);
+        }
+        else if(anim == "Return")
+        {
+            ghostAnim.SetTrigger("Return");
+        }
+    }
+
 }
